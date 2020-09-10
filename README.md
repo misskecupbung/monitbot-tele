@@ -22,8 +22,8 @@ $ curl --silent "https://api.telegram.org/bot{TOKEN}/getUpdates" | jq
 ```
 cd /opt
 git clone https://github.com/misskecupbung/monitbot-telegram
-cd monitbot-telegram
-vim monit-token
+cd monitbot-tele
+vim tokenbot
 ...
 TOKEN={{ Telegram Bot Token }}
 CHATID={{ Chat ID }}
@@ -31,7 +31,7 @@ CHATID={{ Chat ID }}
 
 #If you want to custom token path, you must edit :
 
-vim monitbot-telegram/telegramrc
+vim monitbot-tele/telegramrc
 ...
 elif [ -f /path/custom ]; then . /path/custom;
 ...
@@ -51,8 +51,8 @@ We use cronjob for monitoring everyday. Eg: if every 3 minutes website don't giv
 ```
 crontab -e
 ...
-*/3 * * * * /opt/monitbot-tele
-*/3 * * * * /opt/monitbot-tele
-*/3 * * * * /opt/monitbot-tele
+*/3 * * * * /opt/monitbot-tele/httpcheck
+*/3 * * * * /opt/monitbot-tele/dbcheck
+*/3 * * * * /opt/monitbot-tele/pingcheck
 ...
 ```

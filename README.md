@@ -2,7 +2,7 @@
 
 This guide is refered from https://github.com/matriphe/monit2telegram/ . Goals:
 * Monitoring database, website and ping.
-* If fail, it will send notification via bot.
+* If fails, it will send notification via bot.
 
 ### Requirements
 * Bot Telegram , you can create from eg: @botfather. Remember the token!

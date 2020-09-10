@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#Variables
+database="My Database"
+dbserver="192.168.1.1"
+date=`date`
+passdb="mypassword"
+userdb="userdb"
+
+#Action
+function dbcheck
+{
+        if ! mysqladmin -u $userdb -p$passdb -h $dbserver status | grep "Uptime" > /dev/null;then
+                /opt/monitbot-tele -c /opt/monitbot-tele/tokenbot -m "Monitoring - $database at $date on $dbserver: is DOWN."
+        fi
+}
+
+dbcheck

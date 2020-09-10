@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#Variables
+server="192.168.1.1"
+date=`date`
+
+#Action
+function pingcheck
+{
+	ping=`ping -c 1 $server | grep bytes | wc -l`
+	if ! [ "$ping -gt 1 ];then
+                /opt/monitbot-tele -c /opt/monitbot-tele/tokenbot -m "Monitoring - Server with IP $server at $date: is DOWN."
+	fi
+
+}
+
+pingcheck

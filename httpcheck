@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#Variables
+website="example.com"
+serverweb="192.168.1.1"
+date=`date`
+
+#Action
+function httpcheck
+{
+        if ! curl -s --head  --request GET https://$website | grep "200 OK" > /dev/null ;then
+                /opt/monitbot-tele -c /opt/monitbot-tele/tokenbot -m "Monitoring - $website at $date on $serverweb: is DOWN."
+        fi
+}
+
+httpcheck
